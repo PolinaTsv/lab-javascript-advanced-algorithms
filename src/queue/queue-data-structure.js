@@ -9,11 +9,13 @@ class Queue {
   }
 
   isEmpty() {
-    return !this.queueControl.length;
+    if (this.queueControl.length === 0){
+      return queueControl.length;
+    }
   }
 
   enqueue(item) {
-    if (canEnqueue()) {
+    if (this.canEnqueue()) {
       this.queueControl.unshift(item);
     } else {
       throw new Error("QUEUE_OVERFLOW");
