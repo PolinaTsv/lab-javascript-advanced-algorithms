@@ -13,8 +13,9 @@ class Stack {
   }
 
   isEmpty() {
-    return !stackControl.length;
-  }
+    if (this.stackControl.length === 0){
+    return stackControl.length;
+  }}
 
   push(item) {
     if (this.canPush()) {
