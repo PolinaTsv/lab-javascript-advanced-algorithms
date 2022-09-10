@@ -10,7 +10,7 @@ const dequeue = document.querySelector(".btn-take-dequeue");
 const queue = new Queue();
 
 const clearQueueInput = () => {
-  queueInput.value = "";
+  queueInput.value = " ";
 };
 
 const generateListQueue = () => {
@@ -47,9 +47,10 @@ const generateWarningQueue = (type) => {
 
 const addToQueue = () => {
   try {
-    queueUL.unshift(queueInput.value);
+    generateListQueue();
+    queue.enqueue(queueInput.value);
   } catch (error) {
-    if (queue.unshift(queueUL.value) === "Queue Overflow") {
+    if (queue.enqueue(queueInput.value) === "Queue Overflow") {
       generateWarningQueue("overflow");
     }
   }
@@ -57,9 +58,9 @@ const addToQueue = () => {
 
 const removeFromQueue = () => {
   try {
-    queueUL.shift();
+    queue.dequeue();
   } catch (error) {
-    if (queueUL.shift() === 'Queue underflow'){
+    if (queue.dequeue() === "Queue underflow") {
       generateWarningQueue("underflow");
     }
   }
